@@ -1,5 +1,5 @@
 # Distributed Accounting System
-===========
+
 
 Go client application for the DAS (Distributed Accounting System)
 
