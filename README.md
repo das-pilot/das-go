@@ -50,15 +50,17 @@ You can start the REST server from the command line:
 
 ```
 ./das server --port 8089
+
 DAS Server started on port 8089
 ```
 
-Now you should be able to run the same commands as above using your favorite browser or simply a curl client
+Now you should be able to run the same commands as above using your favorite browser or simply a Curl client
 
 1. Charge another wallet
 
 ```
 curl -d "wallet=1F7B169C846F218A&amount=23.45" -X POST http://localhost:8089/das/charge
+
 {"Result":"OK","Message":"Charged"}
 ```
 
@@ -66,6 +68,7 @@ curl -d "wallet=1F7B169C846F218A&amount=23.45" -X POST http://localhost:8089/das
 
 ```
 curl -X GET http://localhost:8089/das/balance?wallet=1F7B169C846F218A
+
 {"Result":"OK","Message":"","Wallet":"1F7B169C846F218A","Balance":100.50}
 ```
 
@@ -73,6 +76,7 @@ curl -X GET http://localhost:8089/das/balance?wallet=1F7B169C846F218A
 
 ```
 curl -X GET http://localhost:8089/das/history?wallet=1F7B169C846F218A
+
 [{"Wallet":"1F7B169C846F218A","Amount":-43.39317,"Message":"SPENT","Time":"09.12.2016 09:12:59"},
 {"Wallet":"1F7B169C846F218A","Amount":95.048325,"Message":"INCOME","Time":"17.12.2016 17:58:11"},
 {"Wallet":"1F7B169C846F218A","Amount":78.872345,"Message":"INCOME","Time":"18.12.2016 07:20:56"},
