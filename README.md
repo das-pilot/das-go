@@ -73,6 +73,16 @@ curl -X GET http://localhost:8089/das/balance?wallet=1F7B169C846F218A
 
 ```
 curl -X GET http://localhost:8089/das/history?wallet=1F7B169C846F218A
-[{"Wallet":"1F7B169C846F218A","Amount":-43.39317,"Message":"SPENT","Time":"09.12.2016 09:12:59"},   {"Wallet":"1F7B169C846F218A","Amount":95.048325,"Message":"INCOME","Time":"17.12.2016 17:58:11"},{"Wallet":"1F7B169C846F218A","Amount":78.872345,"Message":"INCOME","Time":"18.12.2016 07:20:56"},{"Wallet":"1F7B169C846F218A","Amount":-81.83254,"Message":"SPENT","Time":"13.01.2017 13:32:03"},{"Wallet":"1F7B169C846F218A","Amount":-82.8959,"Message":"SPENT","Time":"13.01.2017 13:53:25"},{"Wallet":"1F7B169C846F218A","Amount":-99.89724,"Message":"SPENT","Time":"14.01.2017 02:26:35"},{"Wallet":"1F7B169C846F218A","Amount":-50.06136,"Message":"SPENT","Time":"14.01.2017 14:40:55"},{"Wallet":"1F7B169C846F218A","Amount":-0.32113647,"Message":"SPENT","Time":"15.01.2017 15:06:43"},{"Wallet":"1F7B169C846F218A","Amount":47.965164,"Message":"INCOME","Time":"17.01.2017 17:57:56"},{"Wallet":"1F7B169C846F218A","Amount":43.27368,"Message":"INCOME","Time":"19.01.2017 19:25:32"}]
+[{"Wallet":"1F7B169C846F218A","Amount":-43.39317,"Message":"SPENT","Time":"09.12.2016 09:12:59"},
+{"Wallet":"1F7B169C846F218A","Amount":95.048325,"Message":"INCOME","Time":"17.12.2016 17:58:11"},
+{"Wallet":"1F7B169C846F218A","Amount":78.872345,"Message":"INCOME","Time":"18.12.2016 07:20:56"},
+{"Wallet":"1F7B169C846F218A","Amount":-81.83254,"Message":"SPENT","Time":"13.01.2017 13:32:03"},
+{"Wallet":"1F7B169C846F218A","Amount":-82.8959,"Message":"SPENT","Time":"13.01.2017 13:53:25"},
+{"Wallet":"1F7B169C846F218A","Amount":-99.89724,"Message":"SPENT","Time":"14.01.2017 02:26:35"},
+{"Wallet":"1F7B169C846F218A","Amount":-50.06136,"Message":"SPENT","Time":"14.01.2017 14:40:55"},
+{"Wallet":"1F7B169C846F218A","Amount":-0.32113647,"Message":"SPENT","Time":"15.01.2017 15:06:43"},
+{"Wallet":"1F7B169C846F218A","Amount":47.965164,"Message":"INCOME","Time":"17.01.2017 17:57:56"},
+{"Wallet":"1F7B169C846F218A","Amount":43.27368,"Message":"INCOME","Time":"19.01.2017 19:25:32"}]
+
 ```
 
