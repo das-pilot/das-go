@@ -8,7 +8,6 @@ Go client application for the DAS (Distributed Accounting System)
 Clone the repository, change the current directory to src and build the project using the Go compiler
 
 ```
-cd src
 go build das.go
 ```
 
