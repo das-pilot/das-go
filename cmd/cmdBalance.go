@@ -7,7 +7,9 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var balanceWallet string
+var fromWallet string
+var toWallet string
+
 
 // balanceCmd represents the balance command
 var balanceCmd = &cobra.Command{
@@ -21,9 +23,10 @@ var balanceCmd = &cobra.Command{
 
 func init() {
 	RootCmd.AddCommand(balanceCmd)
-	balanceCmd.Flags().StringVarP(&balanceWallet, "wallet", "w", "", "Wallet name")
+	balanceCmd.Flags().StringVarP(&fromWallet, "fromWallet", "f", "", "From wallet name")
+	balanceCmd.Flags().StringVarP(&toWallet, "toWallet", "t", "", "To wallet name")
 }
 
 func printBalance() {
-	fmt.Printf("%+v\n", api.Balance(balanceWallet))
+	fmt.Printf("%+v\n", api.Balance(fromWallet, toWallet))
 }

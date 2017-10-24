@@ -7,7 +7,8 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var historyWallet string
+var fromHistoryWallet string
+var toHistoryWallet string
 var startTime int64
 var endTime int64
 
@@ -23,16 +24,18 @@ var historyCmd = &cobra.Command{
 
 func init() {
 	RootCmd.AddCommand(historyCmd)
-	historyCmd.Flags().StringVarP(&historyWallet, "wallet", "w", "", "Wallet name")
-	historyCmd.Flags().Int64VarP(&startTime, "from", "f", -1, "Start time")
-	historyCmd.Flags().Int64VarP(&endTime, "to", "t", -1, "End time")
+	historyCmd.Flags().StringVarP(&fromHistoryWallet, "fromWallet", "w", "", "Wallet name")
+	historyCmd.Flags().StringVarP(&toHistoryWallet, "toWallet", "t", "", "Wallet name")
+	historyCmd.Flags().Int64VarP(&startTime, "from", "s", -1, "Start time")
+	historyCmd.Flags().Int64VarP(&endTime, "to", "e", -1, "End time")
 }
 
 func printHistory() {
 	filter := api.HistoryFilter{
-		Wallet:    historyWallet,
-		TimeStart: startTime,
-		TimeEnd:   endTime}
+		FromWallet: fromHistoryWallet,
+		ToWallet:   toHistoryWallet,
+		TimeStart:  startTime,
+		TimeEnd:    endTime}
 
 	history := api.History(filter)
 	for i, h := range history {

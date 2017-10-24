@@ -7,7 +7,8 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var chargeWallet string
+var chargeFromWallet string
+var chargeToWallet string
 var chargeAmount float32
 
 // chargeCmd represents the charge command
@@ -22,10 +23,11 @@ var chargeCmd = &cobra.Command{
 
 func init() {
 	RootCmd.AddCommand(chargeCmd)
-	chargeCmd.Flags().StringVarP(&chargeWallet, "wallet", "w", "", "Wallet name")
+	chargeCmd.Flags().StringVarP(&chargeFromWallet, "fromWallet", "w", "", "Wallet name")
+	chargeCmd.Flags().StringVarP(&chargeToWallet, "toWallet", "t", "", "Wallet name")
 	chargeCmd.Flags().Float32VarP(&chargeAmount, "amount", "a", 0, "Amount to charge")
 }
 
 func printChargeResult() {
-	fmt.Printf("%+v\n", api.Charge(chargeWallet, chargeAmount))
+	fmt.Printf("%+v\n", api.Charge(chargeFromWallet, chargeToWallet, chargeAmount))
 }
