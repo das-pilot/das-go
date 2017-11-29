@@ -88,6 +88,22 @@ func ChargeMultiple(fromWallet, toWallet string, amount float32, times int) Comm
 	}
 }
 
+func ChargeMultipleOneBlock(chargesCollection string) CommonResponse {
+	var chargeArgs = [][]byte{[]byte(chargesCollection)}
+	_, err := chClient.ExecuteTx(apitxn.ExecuteTxRequest{ChaincodeID: setup.ChainCodeID, Fcn: "chargeMultiple", Args: chargeArgs})
+	if err == nil {
+		return CommonResponse{
+			Result:  "OK",
+			Message: "Charged",
+		}
+	} else{
+		return CommonResponse{
+			Result: "Failure",
+			Message: fmt.Sprint(err),
+		}
+	}
+}
+
 func Create(wallet string) CommonResponse {
 	var createArgs = [][]byte{[]byte(wallet)}
 	_, err := chClient.ExecuteTx(apitxn.ExecuteTxRequest{ChaincodeID: setup.ChainCodeID, Fcn: "create", Args: createArgs})

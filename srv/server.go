@@ -21,6 +21,7 @@ func Start(port int) {
 	router.GET("/das/balance", balance)
 	router.GET("/das/history", history)
 	router.POST("/das/chargeMultiple", chargeMultiple)
+	router.POST("/das/chargeMultipleOneBlock", chargeMultipleOneBlock)
 
 	router.Run(fmt.Sprintf(":%d", port))
 }
@@ -87,4 +88,10 @@ func chargeMultiple(c *gin.Context) {
 	} else {
 		c.JSON(http.StatusOK, gin.H{"result": "Failure", "message": fmt.Sprint(err)})
 	}
+}
+
+func chargeMultipleOneBlock(c *gin.Context) {
+	chargesCollection := c.PostForm("chargesCollection")
+	result := api.ChargeMultipleOneBlock(chargesCollection)
+	c.JSON(http.StatusOK, result)
 }
