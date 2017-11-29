@@ -75,6 +75,19 @@ func Charge(fromWallet, toWallet string, amount float32) CommonResponse {
 	}
 }
 
+func ChargeMultiple(fromWallet, toWallet string, amount float32, times int) CommonResponse {
+	for i := 0; i < times; i++ {
+		resp := Charge(fromWallet, toWallet, amount)
+		if resp.Result != "Ok" {
+			return resp
+		}
+	}
+	return CommonResponse{
+		Result:  "OK",
+		Message: "Charged",
+	}
+}
+
 func Create(wallet string) CommonResponse {
 	var createArgs = [][]byte{[]byte(wallet)}
 	_, err := chClient.ExecuteTx(apitxn.ExecuteTxRequest{ChaincodeID: setup.ChainCodeID, Fcn: "create", Args: createArgs})

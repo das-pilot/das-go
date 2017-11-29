@@ -20,6 +20,7 @@ func Start(port int) {
 	router.POST("/das/charge", charge)
 	router.GET("/das/balance", balance)
 	router.GET("/das/history", history)
+	router.GET("/das/chargeMultipel", chargeMultiple)
 
 	router.Run(fmt.Sprintf(":%d", port))
 }
@@ -73,4 +74,17 @@ func history(c *gin.Context) {
 	result := api.History(filter)
 
 	c.JSON(http.StatusOK, result)
+}
+
+func chargeMultiple(c *gin.Context) {
+	fromWallet := c.PostForm("fromWallet")
+	toWallet := c.PostForm("toWallet")
+	amount, err := strconv.ParseFloat(c.PostForm("amount"), 32)
+	times, err := strconv.Atoi(c.PostForm("times"))
+	if err == nil {
+		result := api.ChargeMultiple(fromWallet, toWallet, float32(amount), times)
+		c.JSON(http.StatusOK, result)
+	} else {
+		c.JSON(http.StatusOK, gin.H{"result": "Failure", "message": fmt.Sprint(err)})
+	}
 }
