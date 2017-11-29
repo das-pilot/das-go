@@ -78,7 +78,7 @@ func Charge(fromWallet, toWallet string, amount float32) CommonResponse {
 func ChargeMultiple(fromWallet, toWallet string, amount float32, times int) CommonResponse {
 	for i := 0; i < times; i++ {
 		resp := Charge(fromWallet, toWallet, amount)
-		if resp.Result != "Ok" {
+		if resp.Result != "OK" {
 			return resp
 		}
 	}
