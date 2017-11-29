@@ -20,7 +20,7 @@ func Start(port int) {
 	router.POST("/das/charge", charge)
 	router.GET("/das/balance", balance)
 	router.GET("/das/history", history)
-	router.GET("/das/chargeMultipel", chargeMultiple)
+	router.POST("/das/chargeMultiple", chargeMultiple)
 
 	router.Run(fmt.Sprintf(":%d", port))
 }
